@@ -99,13 +99,13 @@ export default {
     bar() {
       if (process.env.NODE_ENV != 'production') {
         return {
-          color: `error`,
-          text: `PLATAFORMA VIRTUAL DE TRÁMITES (VERSIÓN DE PRUEBA)`
+          color: `green darken-4`,
+          text: `PLATAFORMA VIRTUAL DE TRÁMITES (BIOMÉTRICO VERSIÓN DE PRUEBA)`
         }
       } else {
         return {
-          color: `primary`,
-          text: `PLATAFORMA VIRTUAL DE TRÁMITES`
+          color: `green darken-4`,
+          text: `PLATAFORMA VIRTUAL DE TRÁMITES (BIOMÉTRICO)`
         }
       }
     },
