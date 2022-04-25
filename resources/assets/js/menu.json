@@ -114,11 +114,5 @@
     "icon": "mdi-format-list-checkbox",
     "permission": "show-record",
     "params": {}
-  },
-  {
-    "href": "Proceedings",
-    "title":"Reporte Actas",
-    "icon": "mdi-account",
-    "params": {}
   }
 ]
