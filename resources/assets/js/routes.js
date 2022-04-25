@@ -23,6 +23,7 @@ import Reports from '@/components/reports/Reports'
 import ListTracingLoans from '@/components/tracing/ListTracingLoans'
 import TracingAdd from '@/components/tracing/Add'
 import FundRotaryList from '@/components/fund_rotary/ListEntry'
+import Proceedings from '@/components/loan/Proceedings'
 
 export const routes = [
   {
@@ -218,6 +219,14 @@ export const routes = [
     path: '/fundRotary',
     name: 'fundRotaryList',
     component: FundRotaryList,
+    meta: {
+      requiresAuth: true
+    }
+  },
+  {
+    path: '/proceedings',
+    name: 'Proceedings',
+    component: Proceedings,
     meta: {
       requiresAuth: true
     }
