@@ -1,12 +1,14 @@
 <template>
   <v-card flat>
 
+    <!--Sección Título-->
     <v-card-title class="pb-0">
       <v-toolbar>
         Aquí ira el título
       </v-toolbar>
     </v-card-title>
 
+    <!--Sección pre título-->
     <v-card-title> 
       Préstamos mayores a 80.000
       <v-spacer></v-spacer>
@@ -21,6 +23,7 @@
 
     <v-spacer></v-spacer>
 
+    <!--Sección Tabla-->
     <template>
       <v-card-text> 
         <v-data-table
