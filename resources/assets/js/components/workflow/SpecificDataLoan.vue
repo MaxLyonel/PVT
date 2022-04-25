@@ -17,11 +17,24 @@
                             <v-card-text class="py-0">
                               <v-col cols="12" md="12" color="orange">
                                 <v-row>
-                                  <v-col cols="12" md="11" class="py-0">
+                                  <v-col cols="12" md="6" class="py-0">
                                     <p style="color:teal"><b>TITULAR</b></p>
                                   </v-col>
+
+                                  <v-spacer></v-spacer>
+
+                                  <v-col cols="12" md="6" align="end"  class="py-0">
+                                    <v-btn
+                                      color="success"
+                                      class="darken-2 ml-4"
+                                      small
+                                    > 
+                                    Actas
+                                    </v-btn>
+                                  </v-col>
+
                                   <v-col cols="12" md="1" class="py-0" >
-                                <div v-if="permissionSimpleSelected.includes('update-loan-calculations') " >
+                                  <div v-if="permissionSimpleSelected.includes('update-loan-calculations') " >
                                   <v-tooltip top >
                                     <template v-slot:activator="{ on }">
                                       <v-btn
@@ -65,7 +78,9 @@
                                   </v-tooltip>
                                   </div>
                                   </v-col>
+
                                   <v-progress-linear color="blue-grey lighten-3"></v-progress-linear>
+
                                   <v-col cols="12" md="4" v-show="!qualification_edit" class="pb-0">
                                     <p><b>MONTO SOLICITADO: </b> {{loan.amount_approved | moneyString}} Bs.</p>
                                   </v-col>
