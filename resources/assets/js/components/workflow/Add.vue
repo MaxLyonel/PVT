@@ -253,7 +253,7 @@
                     right
                     absolute
                     v-on="on"
-                    style="margin-right: -9px;margin-top: 78px;"
+                    style="margin-right: -9px;margin-top: 110px;"
                     @click="printQualificationForm($route.params.id)"
                   >
                     <v-icon>mdi-printer-check</v-icon>
@@ -264,6 +264,75 @@
                 </div>
               </v-tooltip>
             </v-card-title>
+
+
+            <v-dialog
+              v-model="dialog_minutes"
+                                    width="500"
+                                        >
+                                      <v-card-title class="text-h5 blue-grey darken-2">
+                                        <span style="color:white" class="headline">INTRODUZCA EL NÚMERO DE SESIÓN</span>
+                                      </v-card-title>
+                  
+                                    <v-card>
+                                      <v-card-text>
+                                        <v-container>
+                                          <v-row>
+                                            <v-col
+                                              cols="12"
+                                              sm="6"
+                                              md="6"
+                                                >
+                                              <ValidationProvider v-slot="{ errors }" name="numero sesion" rules="numeric|min:1" mode="aggressive">
+                                                <v-text-field
+                                                  label="Número de sesión"
+                                                  :error-messages="errors"
+                                                  v-model="num_session"
+                                                    ></v-text-field> 
+                                              </ValidationProvider>
+                                            </v-col> 
+                                          </v-row>
+                                        </v-container>
+                                      </v-card-text>
+                                      <v-card-actions>
+                                        <v-spacer></v-spacer>
+                                        <v-btn
+                                          color="primary"
+                                          text
+                                          @click="dialog_minutes = false"
+                                            >
+                                          Imprimir
+                                        </v-btn>
+                                      </v-card-actions>
+                                    </v-card>
+        </v-dialog>
+            <v-card-title> 
+              <v-tooltip top>
+         
+                <template v-slot:activator="{ on, attrs }">
+                 <v-btn
+                    fab
+                    x-small
+                    color="success"
+                    top
+                    right
+                    absolute
+                    v-on="on"
+                    v-bind="attrs"
+                    style="margin-right: 36px; margin-top: 110px;"
+                    @click="dialog_minutes = true"
+                    >
+                    <v-icon>mdi-printer-check</v-icon>
+                  </v-btn>
+
+                </template>
+                <!--<div>-->
+                  <!--<span>Imprimir Acta de Sesión</span>-->
+                <!--</div>-->
+
+              </v-tooltip>
+            </v-card-title>
+
             <v-card-text class="pa-0">
               <SpecificDataLoan
                 :loan.sync="loan"
@@ -510,6 +579,7 @@ export default {
       type: null,
       disbursable: null
     },
+    dialog_minutes: false,
     dialog:false,
     bonos: [0, 0, 0, 0],
     payable_liquid: [0, 0, 0],
