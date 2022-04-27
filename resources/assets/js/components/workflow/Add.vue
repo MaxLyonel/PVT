@@ -242,7 +242,7 @@
               </v-tooltip>
             </v-card-title>
 
-            <v-card-title v-if="permissionSimpleSelected.includes('print-qualification-form')">
+            <v-card-title class="pa-0" v-if="permissionSimpleSelected.includes('print-qualification-form')">
               <v-tooltip top>
                 <template v-slot:activator="{ on }">
                   <v-btn
@@ -253,7 +253,7 @@
                     right
                     absolute
                     v-on="on"
-                    style="margin-right: -9px;margin-top: 110px;"
+                    style="margin-right: -6px;margin-top: 48px;"
                     @click="printQualificationForm($route.params.id)"
                   >
                     <v-icon>mdi-printer-check</v-icon>
@@ -265,48 +265,51 @@
               </v-tooltip>
             </v-card-title>
 
+              <v-dialog
+                v-model="dialog_minutes"
+                  width="500"
+               >
+                <v-card-title class="text-h5 blue-grey darken-2">
+                  <span style="color:white" >INTRODUZCA EL NÚMERO DE SESIÓN</span>
+                </v-card-title>
+              
+                <v-card>
+                  <v-card-text>
+                    <v-container>
+                      <v-row>
+                        <v-col
+                          cols="12"
+                          sm="6"
+                          md="6"
+                          class="pa-0"
+                        >
+                          <ValidationProvider v-slot="{ errors }" name="numero sesion" rules="numeric|min:1" mode="aggressive">
+                            <v-text-field
+                              label="Número de sesión"
+                              :error-messages="errors"
+                              v-model="number_session"
+                                ></v-text-field> 
+                          </ValidationProvider>
+                        </v-col> 
+                      </v-row>
+                    </v-container>
+                  </v-card-text>
+                  <v-card-actions>
+                    <v-spacer></v-spacer>
+                    <v-btn
+                      color="primary"
+                      text
 
-            <v-dialog
-              v-model="dialog_minutes"
-                                    width="500"
-                                        >
-                                      <v-card-title class="text-h5 blue-grey darken-2">
-                                        <span style="color:white" class="headline">INTRODUZCA EL NÚMERO DE SESIÓN</span>
-                                      </v-card-title>
-                  
-                                    <v-card>
-                                      <v-card-text>
-                                        <v-container>
-                                          <v-row>
-                                            <v-col
-                                              cols="12"
-                                              sm="6"
-                                              md="6"
-                                                >
-                                              <ValidationProvider v-slot="{ errors }" name="numero sesion" rules="numeric|min:1" mode="aggressive">
-                                                <v-text-field
-                                                  label="Número de sesión"
-                                                  :error-messages="errors"
-                                                  v-model="num_session"
-                                                    ></v-text-field> 
-                                              </ValidationProvider>
-                                            </v-col> 
-                                          </v-row>
-                                        </v-container>
-                                      </v-card-text>
-                                      <v-card-actions>
-                                        <v-spacer></v-spacer>
-                                        <v-btn
-                                          color="primary"
-                                          text
-                                          @click="dialog_minutes = false"
-                                            >
-                                          Imprimir
-                                        </v-btn>
-                                      </v-card-actions>
-                                    </v-card>
-        </v-dialog>
-            <v-card-title> 
+                    @click="printComitteeMinute($route.params.id)"
+                        >
+                      Imprimir
+                    </v-btn>
+                      <!--@click="dialog_minutes = false"-->
+                  </v-card-actions>
+                </v-card>
+              </v-dialog>
+
+            <v-card-title class="pa-0" v-if="permissionSimpleSelected.includes('permission-comittee-minute')"> 
               <v-tooltip top>
          
                 <template v-slot:activator="{ on, attrs }">
@@ -319,16 +322,17 @@
                     absolute
                     v-on="on"
                     v-bind="attrs"
-                    style="margin-right: 36px; margin-top: 110px;"
+                    style="margin-right: 36px; margin-top: 48px; "
+
                     @click="dialog_minutes = true"
                     >
                     <v-icon>mdi-printer-check</v-icon>
                   </v-btn>
 
                 </template>
-                <!--<div>-->
-                  <!--<span>Imprimir Acta de Sesión</span>-->
-                <!--</div>-->
+                <div>
+                  <span>Imprimir Acta de Sesión</span>
+                </div>
 
               </v-tooltip>
             </v-card-title>
@@ -580,6 +584,7 @@ export default {
       disbursable: null
     },
     dialog_minutes: false,
+    number_session: '',
     dialog:false,
     bonos: [0, 0, 0, 0],
     payable_liquid: [0, 0, 0],
@@ -902,6 +907,18 @@ export default {
           base64: true
         })
       } catch (e) {
+        this.toastr.error("Ocurrió un error en la impresión.")
+        console.log(e)
+      }
+    },
+    async printComitteeMinute(id_loan) {
+      try {
+        this.dialog_minutes = false 
+        /*let res = await axios.get(`url_de_richard/${id_loan}/`)*/
+        console.log(id_loan)
+        console.log("Esto es la linea fronteriza")
+        console.log(this.number_session)
+      } catch(e) {
         this.toastr.error("Ocurrió un error en la impresión.")
         console.log(e)
       }

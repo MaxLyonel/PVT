@@ -23,63 +23,6 @@
 
                                   <v-spacer></v-spacer>
 
-                                  <!--<v-dialog-->
-                                    <!--v-model="dialog_minutes"-->
-                                    <!--width="500"-->
-                                      <!-- >-->
-
-                                    <!--<template v-slot:activator="{ on, attrs }">-->
-                                      <!--<v-col cols="12" md="6" align="end"  class="py-0">-->
-                                        <!--<v-btn-->
-                                          <!--color="teal"-->
-                                          <!--small-->
-                                          <!--v-bind="attrs"-->
-                                          <!--v-on="on"-->
-                                           <!-- > -->
-                                        <!--<span style="color:white">Actas</span>-->
-                                        <!--</v-btn>-->
-                                      <!--</v-col>-->
-                                    <!--</template>-->
-                                    <!--<v-card>-->
-                                      <!--<v-card-title class="text-h5 blue-grey darken-2">-->
-                                        <!--<span style="color:white" class="headline">INTRODUZCA EL NÚMERO DE SESIÓN</span>-->
-                                      <!--</v-card-title>-->
-                                    <!--<v-card>-->
-                                      <!--<v-card-text>-->
-                                        <!--<v-container>-->
-                                          <!--<v-row>-->
-                                            <!--<v-col-->
-                                              <!--cols="12"-->
-                                              <!--sm="6"-->
-                                              <!--md="6"-->
-                                               <!-- >-->
-                                              <!--<ValidationProvider v-slot="{ errors }" name="numero sesion" rules="numeric|min:1" mode="aggressive">-->
-                                                <!--<v-text-field-->
-                                                  <!--label="Número de sesión"-->
-                                                  <!--:error-messages="errors"-->
-                                                  <!--v-model="num_session"-->
-                                                   <!-- ></v-text-field> -->
-                                              <!--</ValidationProvider>-->
-                                            <!--</v-col> -->
-                                          <!--</v-row>-->
-                                        <!--</v-container>-->
-                                      <!--</v-card-text>-->
-                                      <!--<v-card-actions>-->
-                                        <!--<v-spacer></v-spacer>-->
-                                        <!--<v-btn-->
-                                          <!--color="primary"-->
-                                          <!--text-->
-                                          <!--@click="dialog_minutes = false"-->
-                                           <!-- >-->
-                                          <!--Imprimir-->
-                                        <!--</v-btn>-->
-                                      <!--</v-card-actions>-->
-                                    <!--</v-card>-->
-                                    <!--</v-card>-->
-
-
-                                  <!--</v-dialog>-->
-
                                   <v-col cols="12" md="1" class="py-0" >
                                   <div v-if="permissionSimpleSelected.includes('update-loan-calculations') " >
                                   <v-tooltip top >
